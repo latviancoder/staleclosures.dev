@@ -5,7 +5,7 @@ const svgWidth = 184;
 const svgHeight = 166;
 
 function ReactLogo() {
-  const electron = useSpring({
+  const electronSpring = useSpring({
     to: async (next) => {
       while (true) {
         await next({ degree: 180 });
@@ -17,41 +17,47 @@ function ReactLogo() {
     delay: 1000
   });
 
-  const { opacity } = useSpring({
+  const svgSpring = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 1000 }
+  });
+
+  const circleSpring = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 1000 },
     delay: 1500
   });
 
-  const ellipse1 = useSpring({
+  const ellipse1Spring = useSpring({
     offset: 0,
     from: { offset: 500 },
     config: { mass: 1, tension: 15, friction: 10 },
   });
 
-  const ellipse2 = useSpring({
+  const ellipse2Spring = useSpring({
     offset: 0,
     from: { offset: 500 },
     config: { mass: 1, tension: 15, friction: 10 },
     delay: 500
   });
 
-  const ellipse3 = useSpring({
+  const ellipse3Spring = useSpring({
     offset: 0,
     from: { offset: 500 },
     config: { mass: 1, tension: 15, friction: 10 },
     delay: 1000
   });
 
-  const { dashArray } = useSpring({
-    dashArray: 400,
-    from: { dashArray: 100 },
+  const { n: ellipseDashArray } = useSpring({
+    n: 400,
+    from: { n: 100 },
     config: { mass: 30, tension: 30, friction: 0, clamp: true },
   });
 
   return (
-    <svg version="1.1" width="100%" height="100%" viewBox={`0 0 ${svgWidth} ${svgHeight}`}>
+    <animated.svg version="1.1" width="100%" height="100%" viewBox={`0 0 ${svgWidth} ${svgHeight}`} style={svgSpring}>
       <g transform={`translate(${svgWidth / 2} ${svgHeight / 2})`}>
         <circle fill="#fff" r="16"/>
 
@@ -59,16 +65,16 @@ function ReactLogo() {
           <animated.ellipse
             rx="84"
             ry="32"
-            strokeDashoffset={ellipse1.offset}
-            strokeDasharray={dashArray}
+            strokeDashoffset={ellipse1Spring.offset}
+            strokeDasharray={ellipseDashArray}
             transform="rotate(0)"
           />
 
           <animated.ellipse
             rx="84"
             ry="32"
-            strokeDashoffset={ellipse2.offset}
-            strokeDasharray={dashArray}
+            strokeDashoffset={ellipse2Spring.offset}
+            strokeDasharray={ellipseDashArray}
             transform="rotate(120)"
           />
 
@@ -76,21 +82,21 @@ function ReactLogo() {
             <animated.ellipse
               rx="84"
               ry="32"
-              strokeDashoffset={ellipse3.offset}
-              strokeDasharray={dashArray}
+              strokeDashoffset={ellipse3Spring.offset}
+              strokeDasharray={ellipseDashArray}
             />
             <animated.circle
-              cx={electron.degree.interpolate(degree => 84 * Math.cos(degree * Math.PI / 180))}
-              cy={electron.degree.interpolate(degree => 32 * Math.sin(degree * Math.PI / 180))}
+              cx={electronSpring.degree.interpolate(degree => 84 * Math.cos(degree * Math.PI / 180))}
+              cy={electronSpring.degree.interpolate(degree => 32 * Math.sin(degree * Math.PI / 180))}
               r="6"
               fill="#fff"
               stroke="none"
-              style={{ opacity }}
+              style={circleSpring}
             />
           </g>
         </animated.g>
       </g>
-    </svg>
+    </animated.svg>
   );
 }
 

@@ -11,14 +11,14 @@ const Container = styled(animated.div)`
 `;
 
 export default function Dan() {
-  const danStyle = useSpring({
+  const containerSpring = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 1000 },
     delay: 4000
   });
 
-  return <Container style={danStyle}>
+  return <Container style={containerSpring}>
     <img
       src={danImg}
       width={30}

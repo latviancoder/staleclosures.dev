@@ -33,7 +33,7 @@ export default function Computer() {
     delay: 2500
   });
 
-  const icons = useSpring({
+  const iconSpring = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 1000 },
@@ -41,7 +41,7 @@ export default function Computer() {
   });
 
   return <div style={{ position: 'relative', bottom: '-6px' }}>
-    <Icons style={icons}>
+    <Icons style={iconSpring}>
       <a href="https://twitter.com/latviancoder"><img src={twitter} alt=""/></a>
       <a href="https://www.youtube.com/channel/UCxUdIYLPi-W6GprJh3gyDKw"><img src={youtube} alt=""/></a>
       <a href="https://github.com/latviancoder"><img src={github} alt=""/></a>
