@@ -51,11 +51,11 @@ function Layout() {
 
   let translateTo;
   if (rect) {
-    if (rect.width > 1900) {
-      translateTo = `-${rect.width / 3.5 + 'px'},0,0`;
-    } else {
-      translateTo = `0px,-${rect.height/3},0`
-    }
+    // if (rect.width > 1900) {
+    //   translateTo = `-${rect.width / 3.5 + 'px'},0,0`;
+    // } else {
+    translateTo = `0px,-${rect.height / 3},0`
+    // }
   } else {
     translateTo = '0px,0px,0';
   }
