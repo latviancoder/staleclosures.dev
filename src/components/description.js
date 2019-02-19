@@ -14,9 +14,6 @@ const Container = styled(animated.div)`
   @media (min-width: 1500px) {
     font-size: 40px;
   }
-  @media (min-width: 1900px) {
-    text-align: left;
-  }
 `;
 
 export default function Description() {
