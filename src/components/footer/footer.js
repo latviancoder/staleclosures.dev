@@ -14,7 +14,6 @@ const Container = styled.div`
   height: 110px;
   display: flex;
   align-items: flex-end;
-  border-bottom: 3px #fff solid;
   width: 360px;
   padding: 0 20px;
   margin: 0 auto;
