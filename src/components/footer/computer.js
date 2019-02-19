@@ -17,11 +17,11 @@ const Icons = styled(animated.div)`
   justify-content: center;
   img {
     display: block;
-    width: 12px;
-    height: 12px;
+    width: 18px;
+    height: 18px;
   }
   a:not(:last-child) {
-    margin-right: 15px;
+    margin-right: 12px;
   }
 `;
 
