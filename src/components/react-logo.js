@@ -46,7 +46,7 @@ function ReactLogo() {
 
   const { dashArray } = useSpring({
     dashArray: 400,
-    from: { dashArray: 150 },
+    from: { dashArray: 100 },
     config: { mass: 30, tension: 30, friction: 0, clamp: true },
   });
 
