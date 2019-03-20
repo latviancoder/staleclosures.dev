@@ -22,7 +22,7 @@ export default function Description() {
     transform: 'translate3D(0,0,0)',
     from: { opacity: 0, transform: 'translate3D(20px, 0, 0)' },
     config: { mass: 1, tension: 15, friction: 5 },
-    delay: 1700
+    delay: 0
   });
 
   return <Container style={containerSpring}>

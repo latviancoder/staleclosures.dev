@@ -45,7 +45,14 @@ const Logo = styled(animated.div)`
   margin: auto;
 `;
 
-function Layout() {
+const Main = styled.div`
+  background: #fff;
+  padding: 50px;
+`;
+
+function Layout({ children }) {
+  console.log(children);
+
   const containerRef = useRef(null);
   const [rect, setRect] = useState(null);
 
@@ -79,11 +86,14 @@ function Layout() {
     <GlobalStyle/>
     <SEO/>
     <Container ref={containerRef}>
-      <Logo style={logoProps}>
-        <ReactLogo/>
-      </Logo>
+      {/*<Logo style={logoProps}>*/}
+      {/*  <ReactLogo/>*/}
+      {/*</Logo>*/}
       <Description/>
-      <Footer/>
+      <Main>
+        {children}
+      </Main>
+      {/*<Footer/>*/}
     </Container>
   </>;
 }
