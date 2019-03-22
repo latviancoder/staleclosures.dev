@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
 
 export const listQuery = graphql`
   query ListQuery {
@@ -31,8 +30,8 @@ const IndexPage = (props) => {
       asd
       {postList.edges.map(({ node }, i) => (
         <Link to={node.fields.slug} className="link" key={node.frontmatter.title}>
-          <div className="post-list">
-            <h1>{node.frontmatter.title}</h1>
+          <div>
+            <h3>{node.frontmatter.title}</h3>
             <span>{node.frontmatter.date}</span>
             <p>{node.frontmatter.description}</p>
           </div>

@@ -52,6 +52,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             ]}
           >
             <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css?family=Poppins:800,900" rel="stylesheet"/>
           </Helmet>
         )
       }}

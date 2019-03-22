@@ -3,29 +3,16 @@ import styled from 'styled-components';
 import { animated, useSpring } from 'react-spring';
 
 const Container = styled(animated.div)`
-  max-width: 750px;
-  font-size: 20px;
-  padding: 0 5%;
-  text-align: center;
-  @media (min-width: 750px) {
-    padding: 0;
-    font-size: 35px;
-  }
-  @media (min-width: 1500px) {
-    font-size: 40px;
+  font-size: 26px;
+  line-height: 41px;
+  color: #fff;
+  a {
+    color: #BAD7FF;
   }
 `;
 
 export default function Description() {
-  const containerSpring = useSpring({
-    opacity: 1,
-    transform: 'translate3D(0,0,0)',
-    from: { opacity: 0, transform: 'translate3D(20px, 0, 0)' },
-    config: { mass: 1, tension: 15, friction: 5 },
-    delay: 0
-  });
-
-  return <Container style={containerSpring}>
+  return <Container>
     Hi, my name is Sergey.
     I create
     {' '}<a href="https://www.youtube.com/channel/UCxUdIYLPi-W6GprJh3gyDKw" target="_blank">
@@ -33,6 +20,6 @@ export default function Description() {
   </a>, talk at
     {' '}<a href="https://www.youtube.com/watch?v=nRQoduHpGcw" target="_blank">meetups</a>,
     {' '}experiment with <a href="https://github.com/latviancoder" target="_blank">different technologies</a> and
-    {' '}<a href="https://twitter.com/latviancoder" target="_blank">tweet</a> interesting stuff.
+    {' '}<a href="https://twitter.com/latviancoder" target="_blank">tweet</a> stuff. I also love React.
   </Container>;
 }

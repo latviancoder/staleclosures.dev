@@ -27,7 +27,7 @@ function ReactLogo() {
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 1000 },
-    delay: 1500
+    delay: 1000
   });
 
   const ellipse1Spring = useSpring({
@@ -40,21 +40,23 @@ function ReactLogo() {
     offset: 0,
     from: { offset: 500 },
     config: { mass: 1, tension: 15, friction: 10 },
-    delay: 500
+    delay: 200
   });
 
   const ellipse3Spring = useSpring({
     offset: 0,
     from: { offset: 500 },
     config: { mass: 1, tension: 15, friction: 10 },
-    delay: 1000
+    delay: 400
   });
 
-  const { n: ellipseDashArray } = useSpring({
-    n: 400,
-    from: { n: 100 },
-    config: { mass: 30, tension: 30, friction: 0, clamp: true },
-  });
+  // const { n: ellipseDashArray } = useSpring({
+  //   n: 400,
+  //   from: { n: 100 },
+  //   config: { duration: 500 },
+  // });
+
+  const ellipseDashArray = 500;
 
   return (
     <animated.svg version="1.1" width="100%" height="100%" viewBox={`0 0 ${svgWidth} ${svgHeight}`} style={svgSpring}>
