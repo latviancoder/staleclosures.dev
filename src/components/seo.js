@@ -1,21 +1,21 @@
-import React from "react"
-import Helmet from "react-helmet"
-import { StaticQuery, graphql } from "gatsby"
+import React from "react";
+import Helmet from "react-helmet";
+import { StaticQuery, graphql } from "gatsby";
 
 function SEO({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
-        
+        const metaTitle = title || data.site.siteMetadata.title;
+        const metaDescription = description || data.site.siteMetadata.description;
+
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
-            title={data.site.siteMetadata.title}
+            title={metaTitle}
             meta={[
               {
                 name: `description`,
@@ -23,7 +23,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: `og:title`,
-                content: title,
+                content: metaTitle,
               },
               {
                 property: `og:description`,
@@ -43,7 +43,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: `twitter:title`,
-                content: title,
+                content: metaTitle,
               },
               {
                 name: `twitter:description`,
@@ -51,16 +51,17 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
             ]}
           >
+            <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/fonts/woff2/hack-regular-webfont.woff2?v=2.020'/>
             <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet"/>
             <link href="https://fonts.googleapis.com/css?family=Poppins:800,900" rel="stylesheet"/>
           </Helmet>
-        )
+        );
       }}
     />
-  )
+  );
 }
 
-export default SEO
+export default SEO;
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -72,4 +73,4 @@ const detailsQuery = graphql`
       }
     }
   }
-`
+`;

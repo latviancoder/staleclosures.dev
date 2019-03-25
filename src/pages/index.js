@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import Heading from '../components/shared/heading';
+import SEO from '../components/seo';
 
 export const listQuery = graphql`
   query ListQuery {
@@ -25,20 +26,17 @@ export const listQuery = graphql`
 
 const IndexPage = (props) => {
   const postList = props.data.allMarkdownRemark;
-  return (
-    <Layout>
-      asd
-      {postList.edges.map(({ node }, i) => (
+  return <>
+    <SEO/>
+    {postList.edges.map(({ node }, i) => (
+      <>
         <Link to={node.fields.slug} className="link" key={node.frontmatter.title}>
-          <div>
-            <h3>{node.frontmatter.title}</h3>
-            <span>{node.frontmatter.date}</span>
-            <p>{node.frontmatter.description}</p>
-          </div>
+          <Heading as="h3">{node.frontmatter.title}</Heading>
         </Link>
-      ))}
-    </Layout>
-  );
+        <p>{node.frontmatter.description}</p>
+      </>
+    ))}
+  </>;
 };
 
 export default IndexPage;

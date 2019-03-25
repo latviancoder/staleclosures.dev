@@ -1,18 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import Layout from '../components/layout';
+import Heading from '../components/shared/heading';
+import SEO from '../components/seo';
 
 const StyledContainer = styled.div`
 
-`;
-
-const StyledHeading = styled.h1`
-  margin-top: 0;
-  font-family: 'Poppins', serif;
-  font-size: 40px;
-  font-weight: 800;
 `;
 
 const StyledContent = styled.div`
@@ -23,14 +17,14 @@ const StyledContent = styled.div`
 function BlogPost(props) {
   const post = props.data.markdownRemark;
   const { title } = post.frontmatter;
-  return (
-    <Layout>
-      <StyledContainer>
-        <StyledHeading>{title}</StyledHeading>
-        <StyledContent dangerouslySetInnerHTML={{ __html: post.html }}/>
-      </StyledContainer>
-    </Layout>
-  );
+  return <>
+    <SEO title={title}/>
+
+    <StyledContainer>
+      <Heading as="h1" css={css`margin-top: -10px`}>{title}</Heading>
+      <StyledContent dangerouslySetInnerHTML={{ __html: post.html }}/>
+    </StyledContainer>
+  </>;
 }
 
 export default BlogPost;

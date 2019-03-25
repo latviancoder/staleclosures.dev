@@ -7,7 +7,7 @@ const Container = styled(animated.div)`
   line-height: 41px;
   color: #fff;
   a {
-    color: #BAD7FF;
+    color: #94f6e2;
   }
 `;
 

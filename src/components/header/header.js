@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
@@ -19,11 +19,13 @@ const Container = styled.header`
   padding:  50px 0;
 `;
 
-export default function Header() {
+const Header = memo(() => {
   return <Container>
     <Logo>
-      <ReactLogo/>
+      {/*<ReactLogo/>*/}
     </Logo>
     <Description/>
   </Container>;
-}
+});
+
+export default Header;

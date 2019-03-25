@@ -12,7 +12,7 @@ const Bg = styled.div`
   right: 0;
   margin: auto;
   height: 60vh;
-  background: #1c0abb;
+  background: #011627;
   z-index: 0;
 `;
 
@@ -43,9 +43,15 @@ const DanContainer = styled.div`
   right: calc((100% - 800px)/4 - 5%);
 `;
 
+const Icons = styled.div`
+  display: none;
+  @media (min-width: 1500px) {
+    display: block;
+  }
+`;
 export default function FixedBg() {
   return <Bg>
-    {window.location.pathname !== '/' && <>
+    {window.location.pathname !== '/' && <Icons>
       <ComputerContainer>
         <Computer/>
       </ComputerContainer>
@@ -58,6 +64,6 @@ export default function FixedBg() {
       <DanContainer>
         <Dan/>
       </DanContainer>
-    </>}
+    </Icons>}
   </Bg>;
 }
