@@ -5,43 +5,49 @@ import styled from 'styled-components';
 import twitter from '../../images/twitter.svg';
 import youtube from '../../images/youtube.svg';
 import github from '../../images/github.svg';
+import useScrollingPosition from './useScrollingPosition';
 
 const Icons = styled(animated.div)`
   position: absolute;
-  top: 22px;
-  right: 10px;
-  left: 10px;
-  height: 20px;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 120px;
+  height: 30px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  a {
+    height: 30px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   img {
     display: block;
     width: 18px;
     height: 18px;
   }
-  a:not(:last-child) {
-    margin-right: 12px;
-  }
 `;
 
 export default function Computer() {
+  const scroll = useScrollingPosition();
+
   const { n: svgOffset } = useSpring({
-    n: 0,
-    from: { n: 500 },
-    config: { mass: 1, tension: 30, friction: 40 },
-    delay: 2500
+    n: 350 - (350 * scroll),
+    from: { n: 350 },
+    config: { mass: 1, tension: 30, friction: 10 },
   });
 
-  const iconSpring = useSpring({
-    opacity: 1,
+  const iconsSpring = useSpring({
+    opacity: scroll > 0.9 ? 1 : 0,
     from: { opacity: 0 },
-    config: { duration: 1000 },
-    delay: 3000
+    config: { mass: 1, tension: 30, friction: 10 },
   });
 
-  return <div style={{ position: 'relative', bottom: '-6px' }}>
-    <Icons style={iconSpring}>
+  return <div>
+    <Icons style={iconsSpring}>
       <a href="https://twitter.com/latviancoder"><img src={twitter} alt=""/></a>
       <a href="https://www.youtube.com/channel/UCxUdIYLPi-W6GprJh3gyDKw"><img src={youtube} alt=""/></a>
       <a href="https://github.com/latviancoder"><img src={github} alt=""/></a>
@@ -51,7 +57,7 @@ export default function Computer() {
       height="100%"
       width="100%"
       strokeDashoffset={svgOffset}
-      strokeDasharray={500}
+      strokeDasharray={350}
     >
       <g
         transform="translate(-46.664,-100.24734)"

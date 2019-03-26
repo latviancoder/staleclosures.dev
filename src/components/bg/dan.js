@@ -1,29 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
 import { animated, useSpring } from 'react-spring';
 
 import danImg from '../../images/dan.png';
-
-const Container = styled(animated.div)`
-  position: absolute;
-  bottom: 42px;
-  right: 48px;
-`;
+import useScrollingPosition from './useScrollingPosition';
 
 export default function Dan() {
+  const scroll = useScrollingPosition();
+
   const containerSpring = useSpring({
-    opacity: 1,
+    opacity: scroll > 0.9 ? 1 : 0,
     from: { opacity: 0 },
-    config: { duration: 1000 },
-    delay: 4000
+    config: { mass: 1, tension: 30, friction: 10 }
   });
 
-  return <Container style={containerSpring}>
+  return <animated.div style={containerSpring}>
     <img
       src={danImg}
       width={30}
       style={{ border: '2px #fff solid', borderRadius: '2px' }}
       alt=""
     />
-  </Container>;
+  </animated.div>;
 }

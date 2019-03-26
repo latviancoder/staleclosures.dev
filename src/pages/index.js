@@ -1,12 +1,44 @@
 import React from 'react';
+import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import Heading from '../components/shared/heading';
 import SEO from '../components/seo';
+import { StyledBlogPost } from '../templates/blog-post';
+import { css } from 'styled-components';
 
-const IndexPage = () => (
-  <Layout>
+export const listQuery = graphql`
+  query ListQuery {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          fields{
+            slug
+          }
+          excerpt(pruneLength: 250)
+          frontmatter {
+            date(formatString: "MMMM Do YYYY")
+            title,
+            description
+          }
+        }
+      }
+    }
+  }
+`;
+
+const IndexPage = (props) => {
+  const postList = props.data.allMarkdownRemark;
+  return <>
     <SEO/>
-  </Layout>
-);
+    {postList.edges.map(({ node }, i) => (
+      <>
+        <Link to={node.fields.slug} className="link" key={node.frontmatter.title}>
+          <Heading as="h3"css={css`margin-top: -10px`}>{node.frontmatter.title}</Heading>
+        </Link>
+        <StyledBlogPost>{node.frontmatter.description}</StyledBlogPost>
+      </>
+    ))}
+  </>;
+};
 
 export default IndexPage;

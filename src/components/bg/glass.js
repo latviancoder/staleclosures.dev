@@ -1,12 +1,15 @@
 import { animated, useSpring } from 'react-spring';
 import React from 'react';
+import useScrollingPosition from './useScrollingPosition';
 
 export default function Glass() {
+  const scroll = useScrollingPosition();
+  const dashArray = 35;
+
   const { n: svgOffset } = useSpring({
-    n: 0,
-    from: { n: 100 },
-    config: { mass: 1, tension: 30, friction: 130 },
-    delay: 3000
+    n: dashArray - (dashArray * scroll),
+    from: { n: dashArray },
+    config: { mass: 1, tension: 30, friction: 10 }
   });
 
   return <animated.svg
@@ -14,7 +17,7 @@ export default function Glass() {
     height="100%"
     width="100%"
     strokeDashoffset={svgOffset}
-    strokeDasharray={100}
+    strokeDasharray={dashArray}
     style={{ position: 'relative', bottom: '-3px' }}
   >
     <g fill="none" stroke="#fff">
