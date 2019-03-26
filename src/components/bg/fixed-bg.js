@@ -52,7 +52,7 @@ const Icons = styled.div`
 `;
 export default function FixedBg() {
   return <Bg>
-    {window && window.location.pathname !== '/' && <Icons>
+    {typeof window !== undefined && window.location.pathname !== '/' && <Icons>
       <ComputerContainer>
         <Computer/>
       </ComputerContainer>
