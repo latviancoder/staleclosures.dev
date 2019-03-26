@@ -8,6 +8,7 @@ const Heading = styled.h1`
   line-height: 35px;
   font-weight: 800;
   word-break: break-word;
+  margin-bottom: 20px;
   @media (min-width: ${breakpointS}) {
     font-size: 40px;
     line-height: 45px;

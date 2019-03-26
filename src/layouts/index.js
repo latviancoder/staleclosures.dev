@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import FixedBg from '../components/bg/fixed-bg';
 import Header from '../components/header/header';
@@ -16,15 +16,15 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   a {
-    color: #051153;
+    color: #073953;
     text-decoration: none;
   }
   .language-text {
-      font-family: 'Hack',monospace;
-      padding: .15em .3em .05em;
-      position: relative;
-      background: aliceblue;
-      z-index: -1;
+    font-family: 'Fira Mono',monospace;
+    padding: .15em .3em .05em;
+    position: relative;
+    background: aliceblue;
+    z-index: -1;
   }
   .gatsby-highlight {
     margin: 30px -20px;
@@ -36,9 +36,7 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
     font-variant-ligatures: contextual;
     font-size: 14px;
-    font-family: 'Hack', monospace;
     line-height: 1.5;
-    font-weight: 350;
     color: #fff;
     pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
     code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
@@ -50,6 +48,11 @@ const GlobalStyle = createGlobalStyle`
     code[class*="language-"]::selection, code[class*="language-"] ::selection {
         color: inherit;
         background: rgba(33,66,131,.85);
+    }
+    
+    code[class*="language-"] {
+      font-family: 'Fira Mono', monospace;
+      font-weight: 400;
     }
     
     /* Code blocks */
@@ -179,14 +182,6 @@ const Main = styled.div`
   position: relative;
   z-index: 1;
   min-height: 60vh;
-  a {
-    color: #78b4bf;
-    box-shadow: 0 1px 0 0 #78b4bf;
-    text-decoration: none;
-    &:hover {
-      box-shadow: none;
-    }
-  }
   @media (min-width: ${breakpointS}) {
     padding: 40px;
     border-top-left-radius: 30px;

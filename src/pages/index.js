@@ -3,6 +3,8 @@ import { Link, graphql } from 'gatsby';
 
 import Heading from '../components/shared/heading';
 import SEO from '../components/seo';
+import { StyledBlogPost } from '../templates/blog-post';
+import { css } from 'styled-components';
 
 export const listQuery = graphql`
   query ListQuery {
@@ -31,9 +33,9 @@ const IndexPage = (props) => {
     {postList.edges.map(({ node }, i) => (
       <>
         <Link to={node.fields.slug} className="link" key={node.frontmatter.title}>
-          <Heading as="h3">{node.frontmatter.title}</Heading>
+          <Heading as="h3"css={css`margin-top: -10px`}>{node.frontmatter.title}</Heading>
         </Link>
-        <p>{node.frontmatter.description}</p>
+        <StyledBlogPost>{node.frontmatter.description}</StyledBlogPost>
       </>
     ))}
   </>;

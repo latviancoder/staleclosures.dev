@@ -9,7 +9,7 @@ const StyledContainer = styled.div`
 
 `;
 
-const StyledContent = styled.div`
+export const StyledBlogPost = styled.div`
   font-size: 16px;
   line-height: 28px;
 `;
@@ -22,7 +22,7 @@ function BlogPost(props) {
 
     <StyledContainer>
       <Heading as="h1" css={css`margin-top: -10px`}>{title}</Heading>
-      <StyledContent dangerouslySetInnerHTML={{ __html: post.html }}/>
+      <StyledBlogPost dangerouslySetInnerHTML={{ __html: post.html }}/>
     </StyledContainer>
   </>;
 }

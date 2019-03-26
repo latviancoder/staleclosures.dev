@@ -8,20 +8,23 @@ import { breakpointM, breakpointS } from '../../constants/constants';
 
 const Logo = styled(animated.div)`
   will-change: transform;
-  flex: 0 0 138px;
-  height: 138px;
-  margin-right: 45px;
-  margin-left: 35px;
+  flex: 0 0 60px;
+  height: 60px;
+  margin-right: 10px;
+  margin-left: 10px;
   @media (min-width: ${breakpointM}) {
     margin-left: 7px;
+    margin-right: 45px;
+    flex: 0 0 138px;
+    height: 138px;
   }
 `;
 
 const Container = styled.header`
-  display: none;
+  padding: 10px 0;
+  display: flex;
   align-items: center;
   @media (min-width: ${breakpointS}) {
-    display: flex;
     padding: 25px 0;
   }
   @media (min-width: ${breakpointM}) {

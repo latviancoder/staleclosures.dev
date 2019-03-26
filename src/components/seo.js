@@ -51,9 +51,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
             ]}
           >
-            <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/fonts/woff2/hack-regular-webfont.woff2?v=2.020'/>
-            <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet"/>
-            <link href="https://fonts.googleapis.com/css?family=Poppins:800,900" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Poppins:800|Merriweather:400,700" rel="stylesheet"/>
           </Helmet>
         );
       }}
