@@ -182,6 +182,13 @@ const Main = styled.div`
   position: relative;
   z-index: 1;
   min-height: 60vh;
+  a {
+    color: #59bbbf;
+    box-shadow: 0 1px 0 0 #59bbbf;
+    &:hover {
+      box-shadow: none;
+    }
+  }
   @media (min-width: ${breakpointS}) {
     padding: 40px;
     border-top-left-radius: 30px;

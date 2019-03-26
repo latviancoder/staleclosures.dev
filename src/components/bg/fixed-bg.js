@@ -51,8 +51,10 @@ const Icons = styled.div`
   }
 `;
 export default function FixedBg() {
+  const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
+
   return <Bg>
-    {typeof window !== undefined && window.location.pathname !== '/' && <Icons>
+    {!isHome && <Icons>
       <ComputerContainer>
         <Computer/>
       </ComputerContainer>
