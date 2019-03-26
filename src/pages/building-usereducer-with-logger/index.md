@@ -1,7 +1,7 @@
 ---
 title: "Building useReducer with logger"
-description: Don't build a website with last decade's tech. The future of the web is mobile. However, many of them are too subtle to catch with a lint rule anyway. 
-date: '2018-09-26'
+description: If you've played with useReducer hook and are coming from Redux background, you are probably missing some of useful middleware like logging. 
+date: '2019-03-26'
 image: ''
 ---
 
