@@ -4,6 +4,7 @@ import Computer from './computer';
 import Glass from './glass';
 import Mouse from './mouse';
 import Dan from './dan';
+import { breakpointM, breakpointS } from '../../constants/constants';
 
 const Bg = styled.div`
   position: fixed;
@@ -14,6 +15,10 @@ const Bg = styled.div`
   height: 60vh;
   background: #011627;
   z-index: 0;
+  display: none;
+  @media (min-width: ${breakpointS}) {
+    display: block;
+  }
 `;
 
 const ComputerContainer = styled.div`
@@ -45,7 +50,7 @@ const DanContainer = styled.div`
 
 const Icons = styled.div`
   display: none;
-  @media (min-width: 1500px) {
+  @media (min-width: ${breakpointM}) {
     display: block;
   }
 `;

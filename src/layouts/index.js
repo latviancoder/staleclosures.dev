@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import FixedBg from '../components/bg/fixed-bg';
 import Header from '../components/header/header';
+import { breakpointM, breakpointS } from '../constants/constants';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -19,9 +20,11 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   .language-text {
-    font-family: 'Hack', monospace;
-    padding: .15em .3em .05em;
-    background: #e7f6f4;
+      font-family: 'Hack',monospace;
+      padding: .15em .3em .05em;
+      position: relative;
+      background: aliceblue;
+      z-index: -1;
   }
   .gatsby-highlight {
     margin: 30px -20px;
@@ -159,8 +162,8 @@ const GlobalStyle = createGlobalStyle`
     display: block;
     margin-right: -20px;
     margin-left: -20px;
-    padding: 0 20px;
-    border-left: 0.25em solid #e189ff;
+    padding: 0 17px;
+    border-left: 3px solid #e189ff;
   }
 `;
 
@@ -172,10 +175,8 @@ const Container = styled.div`
 
 const Main = styled.div`
   background: #fff;
-  padding: 60px;
+  padding: 20px 15px;
   position: relative;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
   z-index: 1;
   min-height: 60vh;
   a {
@@ -185,6 +186,14 @@ const Main = styled.div`
     &:hover {
       box-shadow: none;
     }
+  }
+  @media (min-width: ${breakpointS}) {
+    padding: 40px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+  @media (min-width: ${breakpointM}) {
+    padding: 60px;
   }
 `;
 
