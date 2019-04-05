@@ -234,6 +234,8 @@ There is currently no possibility to do something like this:
 applyMiddleware(useReducer, [logging, thunks, ...]);
 ``` 
 
+And probably won't ever be, because that's [not what `useReducer` is designed for](https://twitter.com/dan_abramov/status/1098928616698728449).
+
 So we did data fetching with [`useEffect`](https://overreacted.io/a-complete-guide-to-useeffect/) and also created a custom [`useReducerWithLogger`](https://staleclosures.dev/building-usereducer-with-logger/) hook which enhances `useReducer` functionality.
 
 ```javascript
