@@ -294,4 +294,4 @@ With hooks, on the other hand, we at least can be sure that React team "has our 
 
 ---
 
-[Discuss on Twitter]() | [Edit this post on Github]()
+[Discuss on Twitter]() | [Edit this post on Github](https://github.com/latviancoder/staleclosures.dev/edit/master/src/pages/from-redux-to-hooks-case-study/index.md)
