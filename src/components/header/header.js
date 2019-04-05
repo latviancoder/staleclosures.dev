@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
@@ -35,11 +34,9 @@ const Container = styled.header`
 
 const Header = memo(() => {
   return <Container>
-    <Link to="/">
       <Logo>
         <ReactLogo/>
       </Logo>
-    </Link>
     <Description/>
   </Container>;
 });
