@@ -33,6 +33,14 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: "gatsby-remark-embed-youtube",
+            options: {
+              width: 760,
+              height: 400
+            }
+          },
+          'gatsby-remark-responsive-iframe',
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: "language-",

@@ -25,16 +25,16 @@ Before we go into details about "how" let's focus on the question "why". We deci
 - Middle-sized project
 - Tight deadline
 - Small global state with infrequent updates
-- Typescript everywhere
+- TypeScript everywhere
 - No server-side rendering
 
 Mark Erikson, one of the maintainers of Redux, recently did a great talk called "[The State of Redux](http://www.youtube.com/watch?v=mtjHxwUQUs0&t=54m17s)" in which he addressed some of the myths and misconceptions about Redux. He also mentions when it makes sense to use alternative solutions. I highly suggest watching it before you decide on this path.
 
 ---
 
-## Everything is global
+## Global namespace
 
-Having a single store in Redux comes with [benefits](https://stackoverflow.com/a/33633850/1936347), but at the  same time you end up making everything global. Most applications profit from this, but if your global state is small and you know for sure that specific slices of state will only be used by specific areas of your application, making them global makes you feel.. uneasy.
+Having a single store in Redux comes with [benefits](https://stackoverflow.com/a/33633850/1936347), but at the  same time you end up putting everything into global namespace. Most applications profit from this, you can even [create nested reducers](https://kickstarter.engineering/namespacing-actions-for-redux-d9b55a88b1b1) and use naming conventions for actions. But if your global state is small and you know for sure that specific slices of state will only be used by specific areas of your application, making them global makes you feel.. uneasy. 
 
 Instead, when using Hooks we can leverage the power of useReducer/useContext combination to create multiple "stores" for different areas of our application.  This goes more in the direction of MobX and state management solutions inspired by Flux architecture. We are essentially creating multiple large [compound components](https://kentcdodds.com/blog/compound-components-with-react-hooks/). 
 
@@ -50,7 +50,7 @@ type Context = {
   dispatch: Dispatch<Action>;
 }
 
-const ArticleSearchContext = createContext<Context>({} as Context);
+const ArticleSearchContext = createContext({} as Context);
 
 function useArticleSearchContext() {
   return useContext(ArticleSearchContext);
@@ -78,13 +78,13 @@ const ArticleSearchSidebar = () => {
 
 ---
 
-## Typescript
+## TypeScript
 
-As Typescript gains more and more adoption we often have to ask ourselves: "Does this work well with TS?"
+As TypeScript gains more and more adoption we often have to ask ourselves: "Does this work well with TS?"
 
-Using Typescript with Redux is by no means an easy task. Suddenly realizing that the component you are working on needs to be `connected` often results in a frustrated "sigh". There are multiple different [approaches](https://github.com/piotrwitek/react-redux-typescript-guide) and [libraries](https://github.com/aikoven/typescript-fsa) available with different levels of complexity, flexibility and amounts of boilerplate code. 
+Using TypeScript with Redux is by no means an easy task. Suddenly realizing that the component you are working on needs to be `connected` often results in a frustrated "sigh". There are multiple different [approaches](https://github.com/piotrwitek/react-redux-typescript-guide) and [libraries](https://github.com/aikoven/typescript-fsa) available with different levels of complexity, flexibility and amounts of boilerplate code. 
 
-Hooks on the other hand are very pleasant to use with Typescript. Here we see [discriminated unions](https://basarat.gitbooks.io/typescript/docs/types/discriminated-unions.html) used to create typed actions and a reducer. The `produce` part is coming from [immer](https://github.com/mweststrate/immer) and makes working with immutable updates much easier.
+Hooks on the other hand are very pleasant to use with TypeScript. Here we see [discriminated unions](https://basarat.gitbooks.io/typescript/docs/types/discriminated-unions.html) used to create typed actions and a reducer. The `produce` part is coming from [immer](https://github.com/mweststrate/immer) and makes working with immutable updates much easier.
 
 ```typescript
 type Action =
@@ -107,6 +107,7 @@ function reducer(state: OverviewState, action: Action): OverviewState {
 
         if (folder && folder.menus) {
           const menuIndex = folder.menus.findIndex(m => m.id === menuId);
+          // Mutate all you want, it's the power of immer
           folder.menus.splice(menuIndex, 1);
         }
       });
@@ -127,39 +128,34 @@ function reducer(state: OverviewState, action: Action): OverviewState {
 }
 ```
 
-In fact, we can go even further on our quest to reduce boilerplate and try [use-methods](https://github.com/pelotom/use-methods) library, which already uses immer under the hood and negates the need for explicitly typed actions. 
+In fact, we can go even further on our quest to reduce boilerplate and install [use-methods](https://github.com/pelotom/use-methods) library, which is built on top of `useReducer`, already uses immer **under the hood** and negates the need for explicit action types. Incredible stuff.
 
-```javascript
-const initialState = { count: 0 };
+Here is the same example, rewritten using use-methods.
 
-const methods = state => ({
-  reset() {
-    return initialState;
+```typescript
+type OverviewState = {
+  folders: Array<MenuFolder>;
+  selectedFolderId?: number;
+};
+
+const methods = (state: OverviewState) => ({
+  deleteMenu({ folderId, menuId }: { menuId: number, folderId: number }) {
+    const folder = state.folders.find(f => f.id === folderId);
+
+    if (folder && folder.menus) {
+      const menuIndex = folder.menus.findIndex(m => m.id === menuId);
+      folder.menus.splice(menuIndex, 1);
+    }
   },
-  increment() {
-    state.count++;
-  },
-  decrement() {
-    state.count--;
+  addMenu(menu: Menu) {
+    const folderId = state.selectedFolderId;
+    const folder = state.folders.find(f => f.id === folderId) || {};
+    folder.menus && folder.menus.push(menu);
   },
 });
-
-function Counter() {
-  const [
-    { count }, 
-    { reset, increment, decrement }
-  ] = useMethods(methods, initialState);
-
-  return <>
-    Count: {count}
-    <button onClick={reset}>Reset</button>
-    <button onClick={increment}>+</button>
-    <button onClick={decrement}>-</button>
-  </>;
-}
 ```
 
-For more information on React usage with Typescript refer to this [cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet).
+For more information on React usage with TypeScript refer to this [cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet).
 
 ---
 
@@ -175,6 +171,9 @@ Most of the time this is not an issue because re-rendering components in React i
 
 1. Walk through empty streets and reflect on your decision to ditch Redux. 
 2. [Profile](https://www.youtube.com/watch?v=iTrCNz1gRt0) and determine what exactly causes the problem. 
+
+`youtube:https://www.youtube.com/embed/iTrCNz1gRt0`
+
 3. Optimize.
 
 The `Editor` component in the code example below will still be executed, but the JSX part won't be re-rendered unless some of the dependencies passed to `useMemo` change.
@@ -197,7 +196,7 @@ function Editor() {
 }
 ```
 
-Another solution would be to split component into two and wrap it with `memo`, but I like the above approach more because you avoid creating unnecessary components. Take a look at this [comment](https://github.com/facebook/react/issues/15156#issuecomment-474590693) from Dan Abramov for more information on this topic. 
+Another solution would be to split component into two and wrap it with `memo`, but I like the above approach more because you avoid creating unnecessary components. Take a look at this [comment from Dan Abramov](https://github.com/facebook/react/issues/15156#issuecomment-474590693) for more information on this topic. 
 
 ---
 
