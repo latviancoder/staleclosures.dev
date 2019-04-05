@@ -31,12 +31,12 @@ const IndexPage = (props) => {
   return <>
     <SEO/>
     {postList.edges.map(({ node }, i) => (
-      <>
+      <div css={css`margin-bottom: 60px;`}>
         <Link to={node.fields.slug} className="link" key={node.frontmatter.title}>
           <Heading as="h3"css={css`margin-top: -10px`}>{node.frontmatter.title}</Heading>
         </Link>
         <StyledBlogPost>{node.frontmatter.description}</StyledBlogPost>
-      </>
+      </div>
     ))}
   </>;
 };

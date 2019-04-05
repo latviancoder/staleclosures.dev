@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
@@ -34,9 +35,11 @@ const Container = styled.header`
 
 const Header = memo(() => {
   return <Container>
-    <Logo>
-      <ReactLogo/>
-    </Logo>
+    <Link to="/">
+      <Logo>
+        {process.env.NODE_ENV !== 'development' ? <ReactLogo/> : 'logo here'}
+      </Logo>
+    </Link>
     <Description/>
   </Container>;
 });
