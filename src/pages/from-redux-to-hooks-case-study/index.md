@@ -234,7 +234,7 @@ There is currently no possibility to do something like this:
 applyMiddleware(useReducer, [logging, thunks, ...]);
 ``` 
 
-So we did data fetching with [`useEffect`](https://overreacted.io/a-complete-guide-to-useeffect/) and also created a custom `userReducerWithLogger` hook which enhances `useReducer` functionality.
+So we did data fetching with [`useEffect`](https://overreacted.io/a-complete-guide-to-useeffect/) and also created a custom [`useReducerWithLogger`](https://staleclosures.dev/building-usereducer-with-logger/) hook which enhances `useReducer` functionality.
 
 ```javascript
 function enchanceDispatchWithLogger(dispatch) {
@@ -276,7 +276,7 @@ function App() {
 
 ## Devtools & time travel debugging
 
-Time travel debugging is one of those features that creates an immediate "wow" effect, but you rarely end up using it for actual work. Nevertheless, there is a new project called [react-rewind](https://github.com/reactrewind/react-rewind) which tries to replicate this functionality for `userReducer`.
+Time travel debugging is one of those features that creates an immediate "wow" effect, but you rarely end up using it for actual work. Nevertheless, there is a new project called [react-rewind](https://github.com/reactrewind/react-rewind) which tries to replicate this functionality for `useReducer`.
 
 ![Time Travel Debugging](https://github.com/reactrewind/react-rewind/raw/master/images/BrowserPreview_tmp.gif)
 
