@@ -37,7 +37,7 @@ const Header = memo(() => {
   return <Container>
     <Link to="/">
       <Logo>
-        {process.env.NODE_ENV !== 'development' ? <ReactLogo/> : 'logo here'}
+        <ReactLogo/>
       </Logo>
     </Link>
     <Description/>
