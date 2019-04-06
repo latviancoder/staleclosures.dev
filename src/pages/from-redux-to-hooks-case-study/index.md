@@ -233,9 +233,9 @@ There is currently no possibility to do something like this:
 applyMiddleware(useReducer, [logging, thunks, ...]);
 ``` 
 
-And probably won't ever be, because that's [not what `useReducer` is designed for](https://twitter.com/dan_abramov/status/1098928616698728449).
+And probably won't ever be, because that's [not what `useReducer` was designed for](https://twitter.com/dan_abramov/status/1098928616698728449).
 
-So we did data fetching with [`useEffect`](https://overreacted.io/a-complete-guide-to-useeffect/) and also created a custom [`useReducerWithLogger`](https://staleclosures.dev/building-usereducer-with-logger/) hook which enhances `useReducer` functionality.
+So we did data fetching with [`useEffect`](https://overreacted.io/a-complete-guide-to-useeffect/) and also created a custom [`useReducerWithLogger`](https://staleclosures.dev/building-usereducer-with-logger/) as a replacement for redux-logger.
 
 ```javascript
 function enchanceDispatchWithLogger(dispatch) {
@@ -292,6 +292,16 @@ Mark Erikson himself told the following:
 > We are going to worry about it at some point in the future
 
 With hooks, on the other hand, we at least can be sure that React team "has our back covered".
+
+---
+
+## Let's recap 
+
+- It works only for specific types of applications
+- You *have* to understand what you're doing
+- Optimizing rendering performance is now *your* job
+- Typescript works great
+- We were able to ship faster
 
 ---
 
