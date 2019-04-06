@@ -305,4 +305,4 @@ With hooks, on the other hand, we at least can be sure that React team "has our 
 
 ---
 
-[Discuss on Twitter]() | [Edit this post on Github](https://github.com/latviancoder/staleclosures.dev/edit/master/src/pages/from-redux-to-hooks-case-study/index.md)
+[Discuss on Twitter](https://twitter.com/latviancoder/status/1114485719307825153) | [Edit this post on Github](https://github.com/latviancoder/staleclosures.dev/edit/master/src/pages/from-redux-to-hooks-case-study/index.md)
