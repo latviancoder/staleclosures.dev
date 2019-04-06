@@ -287,9 +287,7 @@ Time travel debugging is one of those features that creates an immediate "wow" e
 
 Concurrent React and Suspense are coming and raise a whole bunch of questions. Will current state management solutions work the same way as before? Will something break? Redux is not maintained by the React core team, so we are kinda in the dark here. 
 
-Mark Erikson himself told the following:
-
-> We are going to worry about it at some point in the future
+Mark Erikson himself told that they don't have enough information right now and will worry about it when Suspense/Concurrent Mode come out.
 
 With hooks, on the other hand, we at least can be sure that React team "has our back covered".
 
