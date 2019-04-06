@@ -38,7 +38,7 @@ Having a single store in Redux comes with [benefits](https://stackoverflow.com/a
 
 Instead, when using Hooks we can leverage the power of useReducer/useContext combination to create multiple "stores" for different areas of our application.  This goes more in the direction of MobX and state management solutions inspired by Flux architecture. We are essentially creating multiple large [compound components](https://kentcdodds.com/blog/compound-components-with-react-hooks/). 
 
-This is what it looks like visualized.
+This is what it looks like visualized with my crazy Paint skills.
 
 ![Multiple Contexts](./multiple-contexts.png)
 
