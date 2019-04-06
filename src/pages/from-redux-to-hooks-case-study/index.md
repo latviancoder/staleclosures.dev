@@ -1,5 +1,5 @@
 ---
-title: "From Redux to Hooks: A Case-Study"
+title: "From Redux to Hooks: A Case Study"
 description: After several years of using Redux for most of our projects we decided to try useReducer/useContext approach instead. Here is what we learned. 
 date: '2019-04-05'
 image: ''
