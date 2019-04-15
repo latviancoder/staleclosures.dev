@@ -5,8 +5,11 @@ import { animated } from 'react-spring';
 import Description from './description';
 import ReactLogo from './react-logo';
 import { breakpointM, breakpointS } from '../../constants/constants';
+import { navigate } from 'gatsby';
 
 const Logo = styled(animated.div)`
+  cursor: pointer;
+  position: relative;
   will-change: transform;
   flex: 0 0 60px;
   height: 60px;
@@ -34,9 +37,9 @@ const Container = styled.header`
 
 const Header = memo(() => {
   return <Container>
-      <Logo>
-        <ReactLogo/>
-      </Logo>
+    <Logo onClick={() => navigate('/')}>
+      <ReactLogo/>
+    </Logo>
     <Description/>
   </Container>;
 });
