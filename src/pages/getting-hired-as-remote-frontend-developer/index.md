@@ -168,3 +168,7 @@ I preferred fully-remote companies when applying, because they are usually bette
 - [Reactiflux](https://www.reactiflux.com/)
 - [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 - [Questions for your interviewer](https://gist.github.com/vcarl/14275c72baf976ff1665392e14225dcc)
+
+---
+
+[Edit this post on Github](https://github.com/latviancoder/staleclosures.dev/edit/master/src/pages/getting-hired-as-remote-frontend-developer/index.md)
