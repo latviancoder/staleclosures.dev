@@ -173,4 +173,4 @@ I preferred fully-remote companies when applying, because they are usually bette
 
 ---
 
-[Edit this post on Github](https://github.com/latviancoder/staleclosures.dev/edit/master/src/pages/getting-hired-as-remote-frontend-developer/index.md)
+[Discuss on Twitter](https://twitter.com/latviancoder/status/1117845275572416512) | [Edit this post on Github](https://github.com/latviancoder/staleclosures.dev/edit/master/src/pages/getting-hired-as-remote-frontend-developer/index.md)
