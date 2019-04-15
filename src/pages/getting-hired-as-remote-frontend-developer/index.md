@@ -74,16 +74,16 @@ My main problem though was the following: *I just wasn't as good as I imagined*.
 
 ---
 
-## Pure frontend is rare
+## Frontend+
 
-I already mentioned that companies are mostly interested in senior developers. Furthermore, purely frontend positions are also very rare. You need another field of expertise. Here are some of the combinations I've encountered:
+You will get bonus points if you have another field of expertise. Here are some of the combinations I've encountered:
 
 - UI/UX + JS
 - Ruby + JS
 - PHP + JS
 - AWS stuff + JS 🤔
 
-So typically experience in some backend technology (Node, Ruby, Python, PHP) is a must unless you also have an "eye for design".
+So typically experience in some backend technology (Node, Ruby, Python, PHP) or having an "eye for design" will open up a lot more options for you.
 
 Framework knowledge is almost always mentioned and React is dominating this space. I don't have the exact numbers, but you can go to [weworkremotely](https://weworkremotely.com/remote-jobs/search?utf8=%E2%9C%93&term=frontend) and compare search results for different frameworks.
 
@@ -168,6 +168,8 @@ I preferred fully-remote companies when applying, because they are usually bette
 - [Reactiflux](https://www.reactiflux.com/)
 - [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 - [Questions for your interviewer](https://gist.github.com/vcarl/14275c72baf976ff1665392e14225dcc)
+
+&nbsp;
 
 ---
 
