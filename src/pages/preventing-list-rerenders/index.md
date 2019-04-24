@@ -94,9 +94,9 @@ Let's take a look at our `key` property. Right now we are using index provided b
 })}
 ```
 
-![Example 3](./example3.gif)
+Finally! Here is the [codesandbox demo](https://codesandbox.io/s/50mnw605mn) after all the changes.
 
-Here is the final [codesandbox demo](https://codesandbox.io/s/50mnw605mn).
+![Example 3](./example3.gif)
 
 I know what some of you might be thinking. "It was kinda simpler with class components", and you might be right. But on the other hand we can say that we now understand JavaScript a little better. 
 
