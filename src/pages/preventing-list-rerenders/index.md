@@ -85,7 +85,7 @@ const handleClick = useCallback(id => {
 
 Something changed! Memoization seems to work.. but only partly. Everything below the deleted element somehow still gets re-rendered.
 
-Let's take a look at our `key` property. Right now we are using index provided by `map` function. Every time we delete an element the index of keys below get shifted by 1. [React re-renders a component](https://reactjs.org/docs/reconciliation.html#keys) when its key changes. We need to switch to something unique, for example `comment.id`.
+Let's take a look at our `key` property. Right now we are using index provided by `map` function. Every time we delete an element the index of keys below get shifted by 1. [React recreates a component](https://reactjs.org/docs/reconciliation.html#keys) when its key changes. We need to switch to something unique, for example `comment.id`.
 
 ```typescript
 {comments.map(comment => {
