@@ -210,7 +210,7 @@ function useFilteredArticles() {
   
   const filteredArticles = useMemo(
     () => filterArticles(articles, filters),
-    [articles, query]
+    [articles, filters]
   );
   
   return filteredArticles;
